@@ -42,18 +42,18 @@ app.use(expressValidator())
 app.use(router)
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
-	const error = new Error(`Resource '${req.url}' does not exist`)
+app.use((request, response, next) => {
+	const error = new Error(`Resource '${request.url}' does not exist`)
 	error.status = 404
 	next(error)
 })
 
 // eslint-disable-next-line no-unused-vars
-app.use((error, req, res, next) => {
+app.use((error, request, response, next) => {
 	if (!isProduction) {
 		log(error.stack)
 	}
-	return res.status(error.status || 500).json({
+	return response.status(error.status || 500).json({
 		error: {
 			status: error.status || 500,
 			message: error.message

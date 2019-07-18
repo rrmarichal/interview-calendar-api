@@ -185,6 +185,15 @@ class CandidateController {
 		}
 	}
 
+	/**
+	 * Remove an availability instance from a candidate
+	 *
+	 * @param {object} request express request object
+	 * @param {object} response  express response object
+	 * @param {object} next next middleware
+	 *
+	 * @memberof CandidateController
+	 */
 	static async removeCandidateAvailability(request, response, next) {
 		// eslint-disable-next-line camelcase
 		const { availability_id } = request.params
