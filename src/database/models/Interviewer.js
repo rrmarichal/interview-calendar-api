@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import config from '../config/config'
+
 /**
  * Interviewer model to access the database.
  */
@@ -11,7 +13,9 @@ class Interviewer {
 	 * @param {int} limit number of items per page
 	 */
 	static async getAllInterviewers(page, limit) {
-		return axios.get(`http://localhost:3004/interviewers?_page=${page}&_limit=${limit}`)
+		return axios.get(
+			`${config.db_host}/interviewers?_page=${page}&_limit=${limit}`
+		)
 	}
 
 	/**
@@ -20,7 +24,7 @@ class Interviewer {
 	 * @param {int} interviewerId interviewer ID.
 	 */
 	static async getSingleInterviewer(interviewerId) {
-		return axios.get(`http://localhost:3004/interviewers/${interviewerId}`, {
+		return axios.get(`${config.db_host}/interviewers/${interviewerId}`, {
 			// Throw an error for status codes different than OK or NOT_FOUND.
 			validateStatus: status => status === 200 || status === 404
 		})

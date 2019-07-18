@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import config from '../config/config'
+
 /**
  * Candidate model to access the database.
  */
@@ -11,7 +13,9 @@ class Candidate {
 	 * @param {int} limit number of items per page
 	 */
 	static async getAll(page, limit) {
-		return axios.get(`http://localhost:3004/candidates?_page=${page}&_limit=${limit}`)
+		return axios.get(
+			`${config.db_host}/candidates?_page=${page}&_limit=${limit}`
+		)
 	}
 
 	/**
@@ -20,7 +24,7 @@ class Candidate {
 	 * @param {int} candidateId candidate ID
 	 */
 	static async getById(candidateId) {
-		return axios.get(`http://localhost:3004/candidates/${candidateId}`, {
+		return axios.get(`${config.db_host}/candidates/${candidateId}`, {
 			// Throw an error for status codes different than OK or NOT_FOUND.
 			validateStatus: status => status === 200 || status === 404
 		})
@@ -32,7 +36,7 @@ class Candidate {
 	 * @param {json} candidate candidate data
 	 */
 	static async add(candidate) {
-		return axios.post(`http://localhost:3004/candidates`, candidate)
+		return axios.post(`${config.db_host}/candidates`, candidate)
 	}
 
 	/**
@@ -41,7 +45,7 @@ class Candidate {
 	 * @param {int} candidateId candidate ID
 	 */
 	static async remove(candidateId) {
-		return axios.delete(`http://localhost:3004/candidates/${candidateId}`, {
+		return axios.delete(`${config.db_host}/candidates/${candidateId}`, {
 			// Throw an error for status codes different than OK or NOT_FOUND.
 			validateStatus: status => status === 200 || status === 404
 		})
@@ -54,7 +58,7 @@ class Candidate {
 	 */
 	static async getAvailability(candidateId) {
 		return axios.get(
-			`http://localhost:3004/candidates/${candidateId}/availability`
+			`${config.db_host}/candidates/${candidateId}/availability`
 		)
 	}
 
@@ -66,7 +70,7 @@ class Candidate {
 	 */
 	static async addAvailability(candidateId, availability) {
 		return axios.post(
-			`http://localhost:3004/candidates/${candidateId}/availability`,
+			`${config.db_host}/candidates/${candidateId}/availability`,
 			availability
 		)
 	}
@@ -78,7 +82,7 @@ class Candidate {
 	 */
 	static async removeAvailability(availabilityId) {
 		return axios.delete(
-			`http://localhost:3004/candidates_availability/${availabilityId}`,
+			`${config.db_host}/candidates_availability/${availabilityId}`,
 			{
 				// Throw an error for status codes different than OK or NOT_FOUND.
 				validateStatus: status => status === 200 || status === 404

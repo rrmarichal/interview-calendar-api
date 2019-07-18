@@ -1,4 +1,4 @@
-import Interviewer from '../models/Interviewer'
+import Interviewer from '../database/models/Interviewer'
 
 /**
  *

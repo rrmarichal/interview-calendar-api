@@ -6,6 +6,7 @@ import compression from 'compression'
 import cors from 'cors'
 import expressWinston from 'express-winston'
 import winston from 'winston'
+
 import router from './routes'
 
 const isProduction = process.env.NODE_ENV === 'production'

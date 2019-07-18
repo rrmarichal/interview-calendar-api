@@ -9,7 +9,7 @@
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
     "build": "NODE_ENV=PRODUCTION babel src -d dist --copy-files",
     "start": "NODE_ENV=production node dist/index.js",
-    "db": "json-server --watch database/db.json --routes database/routes.json --port 3004",
+    "db": "json-server --watch database/db.json --routes database/routes.json --port 5001",
     "test:watch": "jest --no-cache  --detectOpenHandles --runInBand --watch"
   },
   "repository": {

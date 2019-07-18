@@ -1,4 +1,4 @@
-import Candidate from '../models/Candidate'
+import Candidate from '../database/models/Candidate'
 
 /**
  *
