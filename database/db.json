@@ -1,0 +1,83 @@
+{
+  "interviewers": [
+    {
+      "id": 1,
+      "name": "Philipp"
+    },
+    {
+      "id": 2,
+      "name": "Sarah"
+    }
+  ],
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Carl"
+    },
+    {
+      "name": "Chal",
+      "id": 2
+    }
+  ],
+  "interviewers_availability": [
+    {
+      "interviewerId": 1,
+      "id": 1,
+      "from": "2019-08-05",
+      "to": "2019-08-09",
+      "start": "09:00",
+      "end": "16:00"
+    },
+    {
+      "interviewerId": 2,
+      "id": 2,
+      "from": "2019-08-05",
+      "to": "2019-08-09",
+      "start": "12:00",
+      "end": "18:00",
+      "days": [
+        "Monday",
+        "Wednesday"
+      ]
+    },
+    {
+      "interviewerId": 2,
+      "id": 3,
+      "from": "2019-08-05",
+      "to": "2019-08-09",
+      "start": "09:00",
+      "end": "12:00",
+      "days": [
+        "Tuesday",
+        "Thursday"
+      ]
+    }
+  ],
+  "candidates_availability": [
+    {
+      "candidateId": 1,
+      "id": 1,
+      "from": "2019-08-05",
+      "to": "2019-08-09",
+      "start": "09:00",
+      "end": "10:00",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "from": "2019-08-05",
+      "to": "2019-08-09",
+      "start": "12:00",
+      "end": "13:00",
+      "days": [
+        "Monday"
+      ],
+      "candidateId": "3",
+      "id": 2
+    }
+  ]
+}

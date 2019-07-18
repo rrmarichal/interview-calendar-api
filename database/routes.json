@@ -1,0 +1,4 @@
+{
+	"/candidates/:id/availability": "/candidates/:id/candidates_availability",
+	"/interviewers/:id/availability": "/interviewers/:id/interviewers_availability"
+}
