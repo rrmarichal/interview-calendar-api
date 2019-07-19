@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
 import AvailabilityValidation from './validation/availability.validation'
-import { check } from './validation/common'
+import Common from './validation/common'
 import AvailabilityController from '../../controllers/availability.controller'
 
 const router = Router()
@@ -13,7 +13,7 @@ const router = Router()
 router.get(
 	'/availability',
 	AvailabilityValidation.getAvailability,
-	check,
+	Common.checkValidation,
 	AvailabilityController.getAvailability
 )
 

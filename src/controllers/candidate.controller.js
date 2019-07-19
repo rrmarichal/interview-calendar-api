@@ -137,9 +137,7 @@ class CandidateController {
 					}
 				})
 			}
-			const availability = await Candidate.getAvailability(
-				parseInt(candidate_id, 10)
-			)
+			const availability = await Candidate.getAvailability(candidate_id)
 			return response.status(200).json(availability.data)
 		} catch (error) {
 			return next(error)
@@ -160,7 +158,6 @@ class CandidateController {
 	static async addCandidateAvailability(request, response, next) {
 		// eslint-disable-next-line camelcase
 		const { candidate_id } = request.params
-		console.log(typeof request.body.from)
 		try {
 			const candidate = await Candidate.getById(candidate_id)
 			if (candidate.status === 404) {
@@ -173,7 +170,7 @@ class CandidateController {
 				})
 			}
 			const availability = await Candidate.addAvailability(
-				parseInt(candidate_id, 10),
+				candidate_id,
 				request.body
 			)
 			return response.status(201).json(availability.data)
@@ -196,7 +193,7 @@ class CandidateController {
 		const { availability_id } = request.params
 		try {
 			const availability = await Candidate.removeAvailability(
-				parseInt(availability_id, 10)
+				availability_id
 			)
 			if (availability.status === 404) {
 				return response.status(404).json({

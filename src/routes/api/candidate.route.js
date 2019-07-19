@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
 import CandidateValidation from './validation/candidate.validation'
-import { check } from './validation/common'
+import Common from './validation/common'
 import CandidateController from '../../controllers/candidate.controller'
 
 const router = Router()
@@ -12,7 +12,7 @@ const router = Router()
 router.get(
 	'/candidates',
 	CandidateValidation.getAllCandidates,
-	check,
+	Common.checkValidation,
 	CandidateController.getAllCandidates
 )
 
@@ -22,7 +22,7 @@ router.get(
 router.get(
 	'/candidates/:candidate_id',
 	CandidateValidation.getSingleCandidate,
-	check,
+	Common.checkValidation,
 	CandidateController.getSingleCandidate
 )
 
@@ -32,7 +32,7 @@ router.get(
 router.post(
 	'/candidates',
 	CandidateValidation.addCandidate,
-	check,
+	Common.checkValidation,
 	CandidateController.addCandidate
 )
 
@@ -42,7 +42,7 @@ router.post(
 router.delete(
 	'/candidates/:candidate_id',
 	CandidateValidation.removeCandidate,
-	check,
+	Common.checkValidation,
 	CandidateController.removeCandidate
 )
 
@@ -52,7 +52,7 @@ router.delete(
 router.get(
 	'/candidates/:candidate_id/availability',
 	CandidateValidation.getCandidateAvailability,
-	check,
+	Common.checkValidation,
 	CandidateController.getCandidateAvailability
 )
 
@@ -62,7 +62,7 @@ router.get(
 router.post(
 	'/candidates/:candidate_id/availability',
 	CandidateValidation.addCandidateAvailability,
-	check,
+	Common.checkValidation,
 	CandidateController.addCandidateAvailability
 )
 
@@ -72,7 +72,7 @@ router.post(
 router.delete(
 	'/candidates/:candidate_id/availability/:availability_id',
 	CandidateValidation.removeCandidateAvailability,
-	check,
+	Common.checkValidation,
 	CandidateController.removeCandidateAvailability
 )
 

@@ -137,7 +137,7 @@ class InterviewerController {
 				})
 			}
 			const availability = await Interviewer.getAvailability(
-				parseInt(interviewer_id, 10)
+				interviewer_id
 			)
 			return response.status(200).json(availability.data)
 		} catch (error) {
@@ -171,7 +171,7 @@ class InterviewerController {
 				})
 			}
 			const availability = await Interviewer.addAvailability(
-				parseInt(interviewer_id, 10),
+				interviewer_id,
 				request.body
 			)
 			return response.status(201).json(availability.data)
@@ -194,7 +194,7 @@ class InterviewerController {
 		const { availability_id } = request.params
 		try {
 			const availability = await Interviewer.removeAvailability(
-				parseInt(availability_id, 10)
+				availability_id
 			)
 			if (availability.status === 404) {
 				return response.status(404).json({

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
 import InterviewerValidation from './validation/interviewer.validation'
-import { check } from './validation/common'
+import Common from './validation/common'
 import InterviewerController from '../../controllers/interviewer.controller'
 
 const router = Router()
@@ -12,7 +12,7 @@ const router = Router()
 router.get(
 	'/interviewers',
 	InterviewerValidation.getAllInterviewers,
-	check,
+	Common.checkValidation,
 	InterviewerController.getAllInterviewers
 )
 
@@ -22,7 +22,7 @@ router.get(
 router.get(
 	'/interviewers/:interviewer_id',
 	InterviewerValidation.getSingleInterviewer,
-	check,
+	Common.checkValidation,
 	InterviewerController.getSingleInterviewer
 )
 
@@ -32,7 +32,7 @@ router.get(
 router.post(
 	'/interviewers',
 	InterviewerValidation.addInterviewer,
-	check,
+	Common.checkValidation,
 	InterviewerController.addInterviewer
 )
 
@@ -42,7 +42,7 @@ router.post(
 router.delete(
 	'/interviewers/:interviewer_id',
 	InterviewerValidation.removeInterviewer,
-	check,
+	Common.checkValidation,
 	InterviewerController.removeInterviewer
 )
 
@@ -52,7 +52,7 @@ router.delete(
 router.get(
 	'/interviewers/:interviewer_id/availability',
 	InterviewerValidation.getInterviewerAvailability,
-	check,
+	Common.checkValidation,
 	InterviewerController.getInterviewerAvailability
 )
 
@@ -62,7 +62,7 @@ router.get(
 router.post(
 	'/interviewers/:interviewer_id/availability',
 	InterviewerValidation.addInterviewerAvailability,
-	check,
+	Common.checkValidation,
 	InterviewerController.addInterviewerAvailability
 )
 
@@ -72,7 +72,7 @@ router.post(
 router.delete(
 	'/interviewers/:interviewer_id/availability/:availability_id',
 	InterviewerValidation.removeInterviewerAvailability,
-	check,
+	Common.checkValidation,
 	InterviewerController.removeInterviewerAvailability
 )
 
