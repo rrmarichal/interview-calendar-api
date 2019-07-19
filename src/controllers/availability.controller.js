@@ -1,9 +1,8 @@
+/* eslint-disable no-plusplus */
+
 import Candidate from '../database/models/Candidate'
 import Interviewer from '../database/models/Interviewer'
-
-const intercept = (current, next) => {
-	return current
-}
+import AvailabilityHelper from './availability.helper'
 
 /**
  *
@@ -43,29 +42,15 @@ class AvailabilityController {
 				if (!interviewer.data || interviewer.data.length === 0) {
 					return response.status(200).json([])
 				}
-				interviewers.push(interviewer.data)
+				interviewers.push(interviewer)
 			}
 			// Intercept candidate and interviewers availabilities.
-			const candidateAvailability = candidate.data
-			const interceptions = []
-			for (let i = 0; i < candidateAvailability.length; i++) {
-				let interception = candidateAvailability[i]
-				for (let j = 0; j < interviewers.length; j++) {
-					const interviewerAvailability = interviewers[j]
-					for (let k = 0; k < interviewerAvailability.length; k++) {
-						interception = intercept(
-							interception,
-							interviewerAvailability[k]
-						)
-					}
-				}
-				interceptions.push(interception)
-			}
-			// Merge interceptions (remove duplicates)
-			for (let i = 0; i < interceptions.length; i++) {
-				// TODO
-			}
-			return response.status(200).json({ message: 'this works' })
+			const interception = AvailabilityHelper.intercept(
+				candidate.data,
+				interviewers.map(i => i.data)
+			)
+			const slots = AvailabilityHelper.getInterviewingSlots(interception)
+			return response.status(200).json(slots)
 		} catch (error) {
 			return next(error)
 		}
