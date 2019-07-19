@@ -4,11 +4,6 @@ import Interviewer from '../database/models/Interviewer'
  *
  * The interviewer controller contains all static methods that handles interviewers requests
  *
- * - getAllInterviewers - Return the interviewers list. Supports pagination
- * - getSingleInterviewer - Returns a interviewer by ID
- * - addInterviewer - Adds a new interviewer
- * - addInterviewerAvailability - Updates a interviewer availability
- *
  * @class InterviewerController
  *
  */
@@ -206,7 +201,7 @@ class InterviewerController {
 					error: {
 						status: 404,
 						// eslint-disable-next-line camelcase
-						message: `Interviewer availability with id ${availability_id} do not exist`
+						message: `Interviewer availability with id ${availability_id} does not exist`
 					}
 				})
 			}

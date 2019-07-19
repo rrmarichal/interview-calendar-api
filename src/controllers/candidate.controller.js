@@ -4,11 +4,6 @@ import Candidate from '../database/models/Candidate'
  *
  * The candidate controller contains all static methods that handles candidates requests
  *
- * - getAllCandidates - Return the candidates list. Supports pagination
- * - getSingleCandidate - Returns a candidate by ID
- * - addCandidate - Adds a new candidate
- * - addCandidateAvailability - Updates a candidate availability
- *
  * @class CandidateController
  *
  */
@@ -27,6 +22,7 @@ class CandidateController {
 	 */
 	static async getAllCandidates(request, response, next) {
 		const { page, limit } = request.query
+		// conso
 		try {
 			const candidates = await Candidate.getAll(page, limit)
 			return response.status(200).json(candidates.data)
@@ -164,6 +160,7 @@ class CandidateController {
 	static async addCandidateAvailability(request, response, next) {
 		// eslint-disable-next-line camelcase
 		const { candidate_id } = request.params
+		console.log(typeof request.body.from)
 		try {
 			const candidate = await Candidate.getById(candidate_id)
 			if (candidate.status === 404) {
@@ -206,7 +203,7 @@ class CandidateController {
 					error: {
 						status: 404,
 						// eslint-disable-next-line camelcase
-						message: `Candidate availability with id ${availability_id} do not exist`
+						message: `Candidate availability with id ${availability_id} does not exist`
 					}
 				})
 			}

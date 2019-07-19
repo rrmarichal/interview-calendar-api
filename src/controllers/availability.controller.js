@@ -2,8 +2,6 @@
  *
  * The controller defined below is the availability controller
  *
- * - getAvailability - TODO
- *
  * @class AvailabilityController
  */
 class AvailabilityController {
@@ -19,6 +17,9 @@ class AvailabilityController {
 	 * @memberof AvailabilityController
 	 */
 	static async getAvailability(request, response, next) {
+		const { candidate_id, interviewers_ids } = request.query
+		console.log('candidate_id', candidate_id)
+		console.log('interviewers_ids', interviewers_ids)
 		try {
 			return response.status(200).json({ message: 'this works' })
 		} catch (error) {

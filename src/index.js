@@ -1,7 +1,6 @@
 import '@babel/polyfill'
 import express from 'express'
 import log from 'fancy-log'
-import expressValidator from 'express-validator'
 import compression from 'compression'
 import cors from 'cors'
 import expressWinston from 'express-winston'
@@ -22,22 +21,17 @@ app.use(cors(corsOptions))
 // compression and header security middleware
 app.use(compression())
 
+app.use(express.json())
+
 app.use(
 	expressWinston.logger({
 		transports: [new winston.transports.Console()],
-		meta: false,
-		expressFormat: true,
-		colorize: true,
 		format: winston.format.combine(
 			winston.format.colorize(),
 			winston.format.simple()
 		)
 	})
 )
-
-app.use(express.json())
-
-app.use(expressValidator())
 
 app.use(router)
 

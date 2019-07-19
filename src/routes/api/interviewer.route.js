@@ -1,4 +1,7 @@
 import { Router } from 'express'
+
+import InterviewerValidation from './validation/interviewer.validation'
+import { check } from './validation/common'
 import InterviewerController from '../../controllers/interviewer.controller'
 
 const router = Router()
@@ -6,26 +9,40 @@ const router = Router()
 /**
  * Get the list of interviewer
  */
-router.get('/interviewers', InterviewerController.getAllInterviewers)
+router.get(
+	'/interviewers',
+	InterviewerValidation.getAllInterviewers,
+	check,
+	InterviewerController.getAllInterviewers
+)
 
 /**
  * Get a interviewer by ID
  */
 router.get(
 	'/interviewers/:interviewer_id',
+	InterviewerValidation.getSingleInterviewer,
+	check,
 	InterviewerController.getSingleInterviewer
 )
 
 /**
  * Add a new interviewer
  */
-router.post('/interviewers', InterviewerController.addInterviewer)
+router.post(
+	'/interviewers',
+	InterviewerValidation.addInterviewer,
+	check,
+	InterviewerController.addInterviewer
+)
 
 /**
  * Remove an interviewer
  */
 router.delete(
 	'/interviewers/:interviewer_id',
+	InterviewerValidation.removeInterviewer,
+	check,
 	InterviewerController.removeInterviewer
 )
 
@@ -34,6 +51,8 @@ router.delete(
  */
 router.get(
 	'/interviewers/:interviewer_id/availability',
+	InterviewerValidation.getInterviewerAvailability,
+	check,
 	InterviewerController.getInterviewerAvailability
 )
 
@@ -42,6 +61,8 @@ router.get(
  */
 router.post(
 	'/interviewers/:interviewer_id/availability',
+	InterviewerValidation.addInterviewerAvailability,
+	check,
 	InterviewerController.addInterviewerAvailability
 )
 
@@ -50,6 +71,8 @@ router.post(
  */
 router.delete(
 	'/interviewers/:interviewer_id/availability/:availability_id',
+	InterviewerValidation.removeInterviewerAvailability,
+	check,
 	InterviewerController.removeInterviewerAvailability
 )
 
