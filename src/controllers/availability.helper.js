@@ -128,6 +128,13 @@ class AvailabilityHelper {
 	}
 
 	/**
+	 * The interception algorithm works as follows:
+	 *
+	 * Given the candidate and interviewers
+	 * availabilities, we need to cross every posible combination of the candidate's availability and all
+	 * interviewers'. To do this we recursively walk through the lists intercepting availabilities on the
+	 * way. If we find a path with non-empty availability, that's added to the result.
+	 *
 	 * @memberof AvailabilityHelper
 	 */
 	static intercept(candidate, interviewers) {
@@ -147,7 +154,8 @@ class AvailabilityHelper {
 	}
 
 	/**
-	 * Return single-day interviewing slots out of availability interceptions
+	 * Return single-day interviewing slots out of availability interceptions.
+	 * Valid interceptions are whole-hour intervals.
 	 *
 	 * @param {array} interception candidate/interviewers availability interceptions
 	 */
