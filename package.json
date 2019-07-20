@@ -4,16 +4,13 @@
   "description": "Interview Calendar API",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src --exec babel-node ./src/index.js",
-    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
-    "build": "NODE_ENV=PRODUCTION babel src -d dist --copy-files",
-    "start": "NODE_ENV=production node dist/index.js",
     "db": "json-server --watch database/db.json --routes database/routes.json --port 5001",
-    "test:watch": "jest --no-cache  --detectOpenHandles --runInBand --watch"
+    "dev": "nodemon --watch src --exec babel-node ./src/index.js",
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/CEOehis/ecommerce-shop.git"
+    "url": "git+ssh://git@github.com/rrmarichal/interview-calendar-api.git"
   },
   "keywords": [
     "calendar",

@@ -147,7 +147,8 @@ class AvailabilityHelper {
 	}
 
 	/**
-	 * Return single-day interviewing slots out of availability interceptions
+	 * Return single-day interviewing slots out of availability interceptions.
+	 * Valid interceptions are whole-hour intervals.
 	 *
 	 * @param {array} interception candidate/interviewers availability interceptions
 	 */
