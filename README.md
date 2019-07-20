@@ -157,3 +157,5 @@ yarn run test
 I certainly spent more than 4-5 hours while working on this challenge. Only creating the `expressjs` blueprint with the API endpoints took me around that time. The other challenge was finding availability slots out of the interception of candidates and interviewers (`AvailabilityHelper` class).
 
 I also tried to pay attention to documentation, uniformity of code and unit tests.
+
+I have hosted the project on a private repository on [github](https://github.com/rrmarichal/interview-calendar-api.git), please ask for access if necesary.
