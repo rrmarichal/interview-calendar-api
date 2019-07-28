@@ -6,7 +6,9 @@ const config = {
 	development: {
 		db_host: process.env.DEVELOPMENT_DB_HOST
 	},
-	production: {}
+	production: {
+		db_host: process.env.PRODUCTION_DB_HOST
+	}
 }
 
 module.exports = {
