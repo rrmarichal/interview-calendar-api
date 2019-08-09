@@ -1,6 +1,4 @@
-# KI-Labs software engineering assesment
-
-## Task
+# Task
 
 Build an interview calendar API.
 
@@ -14,14 +12,14 @@ There are two roles that are supposed to use the calendar API, a candidate and a
 
 - Anyone may then query the API to get a collection of periods of time that indicate possible slots to arrange an interview for a particular candidate and one or more interviewers. In this example, if the API is queried for the candidate Carl and the interviewers Philipp and Sarah, the response should be a collection of 1-hour slots: from 9 a.m. to 10 a.m. on Tuesday, from 9 a.m. to 10 a.m. on Thursday.
 
-## Prerequisites
+# Prerequisites
 
-### Dependencies
+## Dependencies
 
 * [Node JS](https://nodejs.org/en/)
 * [json-server](https://www.npmjs.com/package/json-server)
 
-### Installation
+## Installation
 
 - Run `npm install` or `yarn` to install the project dependencies.
 - Install `json-server`
@@ -29,7 +27,7 @@ There are two roles that are supposed to use the calendar API, a candidate and a
 yarn global add json-server
 ```
 
-### Launch
+## Launch
 ```
 yarn run db - start the dev db server
 ```
@@ -42,9 +40,9 @@ yarn run dev - start the dev server
 
 This will start the development server (`expressjs`) on port 5000.
 
-## API
+# API
 
-### Candidates
+## Candidates
 
 ```
 GET ~/candidates - get the list of candidates
@@ -83,7 +81,7 @@ DELETE candidates/:candidate_id/availability/:availability_id - delete an availa
 - `candidate_id` - path - candidate ID
 - `availability_id` - path - availability ID
 
-### Interviewers
+## Interviewers
 ```
 GET ~/interviewers - get the list of interviewers
 ```
@@ -121,23 +119,23 @@ DELETE interviewers/:interviewer_id/availability/:availability_id - delete an av
 - `interviewer_id` - path - interviewer ID
 - `availability_id` - path - availability ID
 
-### Availability
+## Availability
 ```
 GET ~/availability - get availability slots for interviewing
 ```
 - `candidate_id` - query - candidate ID
 - `interviewers_ids` - query - comma separated interviewers IDs
 
-## Database schema
+# Database schema
 The design for the entities supporting this solution are inspired by a relational DB model. Here we have tables (entities) and relations between them.
 
-### `candidates`
+## `candidates`
 Same as above, each candidate has the `id` and `name` properties.
 
-### `interviewers`
+## `interviewers`
 Each interviewer has the `id` and `name` properties.
 
-### `candidates_availability`
+## `candidates_availability`
 This entity links availability slots to candidates. Each entry contains the following properties:
 - `id` - the unique ID of this entry (key).
 - `candidate_id` - the ID of the candidate.
@@ -147,7 +145,7 @@ This entity links availability slots to candidates. Each entry contains the foll
 - `end` - ending hour for each day (`HH:mm`).
 - `days` - an array with the days (names) within the interval.
 
-### `interviewers_availability`
+## `interviewers_availability`
 This entity links availability slots to interviewers. Each entry contains the following properties:
 - `id` - the unique ID of this entry (key).
 - `interviewer_id` - the ID of the interviewer.
@@ -159,7 +157,7 @@ This entity links availability slots to interviewers. Each entry contains the fo
 
 There is certainly many ways to design the entities for a calendar app. Handling recurring events, deleted instances, etc. can become a little tricky. Model above is meant to be simple. With it we represent the specs for this particular problem clearly and concise.
 
-## Unit testing
+# Unit testing
 The project contains unit tests covering the implementation of the `AvailabilityHelper` class. Please use:
 
 ```
