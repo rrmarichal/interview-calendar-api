@@ -1,5 +1,19 @@
 # KI-Labs software engineering assesment
 
+## Task
+
+Build an interview calendar API.
+
+There are two roles that are supposed to use the calendar API, a candidate and an interviewer. The following shows a typical use case of the API:
+
+- An interview slot is a 1-hour period of time that spreads from the beginning of any hour until the beginning of the next hour. For example, a time span between 9 a.m. and 10 a.m. is a valid interview slot, whereas a time span between 9:30 a.m. and 10:30 a.m. is not.
+
+- Each interviewer sets their own availability slot. For example, the interviewer Philipp is available next week each day from 9 a.m. through 4 p.m. without breaks and the interviewer Sarah is available from 12 p.m. to 6 p.m. on Monday and Wednesday next week, and from 9 a.m. to 12 p.m. on Tuesday and Thursday.
+
+- Each candidate sets their own requested slots for the interview. For example, the candidate Carl is available for the interview from 9 a.m. to 10 a.m. any weekday next week and from 10 a.m. to 12 p.m. on Wednesday.
+
+- Anyone may then query the API to get a collection of periods of time that indicate possible slots to arrange an interview for a particular candidate and one or more interviewers. In this example, if the API is queried for the candidate Carl and the interviewers Philipp and Sarah, the response should be a collection of 1-hour slots: from 9 a.m. to 10 a.m. on Tuesday, from 9 a.m. to 10 a.m. on Thursday.
+
 ## Prerequisites
 
 ### Dependencies
@@ -20,7 +34,7 @@ yarn global add json-server
 yarn run db - start the dev db server
 ```
 
-This will start the `json-server` instance on port 5000. Default data (the one in the assesment document) is already inserted in the `database/db.json` file.
+This will start the `json-server` instance on port 5000. Default data above is already inserted in the `database/db.json` file.
 
 ```
 yarn run dev - start the dev server
@@ -151,11 +165,3 @@ The project contains unit tests covering the implementation of the `Availability
 ```
 yarn run test
 ```
-
-## Note to reviewers
-
-I certainly spent more than 4-5 hours while working on this challenge. Only creating the `expressjs` blueprint with the API endpoints took me around that time. The other challenge was finding availability slots out of the interception of candidates and interviewers (`AvailabilityHelper` class).
-
-I also tried to pay attention to documentation, uniformity of code and unit tests.
-
-I have hosted the project on a private repository on [github](https://github.com/rrmarichal/interview-calendar-api.git), please ask for access if necesary.
