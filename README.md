@@ -30,7 +30,7 @@ yarn global add json-server
 yarn run db - start the dev db server
 ```
 
-This will start the `json-server` instance on port 5000. Default data from the example above is already inserted in the `database/db.json` file.
+This will start the `json-server` instance on port 5001. Default data from the example above is already inserted in the `database/db.json` file.
 
 ```
 yarn run dev - start the dev server

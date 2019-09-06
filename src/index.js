@@ -55,10 +55,9 @@ app.use((error, request, response, next) => {
 	})
 })
 
-// configure port and listen for requests
-const port =
-	parseInt(process.env.NODE_ENV === 'test' ? 8378 : process.env.PORT, 10) ||
-	5000
+// configure port and listen for requests, default to 5000 on the port
+const port = parseInt(process.env.PORT, 10) || 5000
+
 export const server = app.listen(port, () => {
 	log(
 		`Server is running on http://localhost:${port} -- env: ${process.env.NODE_ENV}`
