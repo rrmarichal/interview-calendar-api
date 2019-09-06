@@ -1,6 +1,4 @@
-# Task
-
-Build an interview calendar API.
+# Build an interview calendar API.
 
 There are two roles that are supposed to use the calendar API, a candidate and an interviewer. The following shows a typical use case of the API:
 
@@ -32,7 +30,7 @@ yarn global add json-server
 yarn run db - start the dev db server
 ```
 
-This will start the `json-server` instance on port 5000. Default data above is already inserted in the `database/db.json` file.
+This will start the `json-server` instance on port 5000. Default data from the example above is already inserted in the `database/db.json` file.
 
 ```
 yarn run dev - start the dev server
@@ -130,7 +128,7 @@ GET ~/availability - get availability slots for interviewing
 The design for the entities supporting this solution are inspired by a relational DB model. Here we have tables (entities) and relations between them.
 
 ## `candidates`
-Same as above, each candidate has the `id` and `name` properties.
+Each candidate has the `id` and `name` properties.
 
 ## `interviewers`
 Each interviewer has the `id` and `name` properties.
